@@ -2,6 +2,8 @@
 
 图解 GPU 基础和 AI 算子优化：每个优化都讲清楚它解决哪个瓶颈，配上示意图、可交互实验和能运行、会自我校验的代码。
 
+**在线阅读：<https://felix-bin.github.io/operator/>**
+
 这是一个 VitePress 站点，加上一组 CUDA 代码。
 
 ## 致敬 AI Infra Guide
@@ -36,6 +38,8 @@
 npm install
 npm run docs:dev
 ```
+
+然后打开终端显示的地址，路径是 `/operator/`。推送到 `main` 后，GitHub Actions 会自动构建并部署。
 
 ## 运行算子代码
 

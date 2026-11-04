@@ -20,6 +20,8 @@ const operatorSidebar = [
 ]
 
 export default defineConfig({
+  // 部署在 GitHub Pages 的项目路径下
+  base: '/operator/',
   lang: 'zh-CN',
   title: 'Operator',
   description: '从硬件结构到 AI 负载，图解 GPU 基础与算子优化',
