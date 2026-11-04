@@ -1,0 +1,681 @@
+/* 全站主色 */
+:root {
+  --vp-c-brand-1: #0b7a75;
+  --vp-c-brand-2: #0e8f89;
+  --vp-c-brand-3: #0b7a75;
+  --vp-c-brand-soft: rgba(11, 122, 117, 0.14);
+}
+.dark {
+  --vp-c-brand-1: #5ed1c6;
+  --vp-c-brand-2: #3fb8ad;
+  --vp-c-brand-3: #1f8f86;
+  --vp-c-brand-soft: rgba(94, 209, 198, 0.16);
+}
+
+/* GPU 页面：同一颜色在所有示意图中代表同一类硬件 */
+.gpu-page {
+  --gpu-c: #0b7a75;
+  --gpu-c-fill: #cdeae6;
+  --gpu-m: #a0600a;
+  --gpu-m-fill: #f8e6c4;
+  --gpu-f: #56508f;
+  --gpu-f-fill: #e3e1f3;
+  --gpu-n-fill: #e4eaec;
+}
+.dark .gpu-page {
+  --gpu-c: #5ed1c6;
+  --gpu-c-fill: #123b3a;
+  --gpu-m: #e9b35b;
+  --gpu-m-fill: #43320f;
+  --gpu-f: #b1abe8;
+  --gpu-f-fill: #2a2850;
+  --gpu-n-fill: #22323a;
+}
+
+/* 图内文字需要足够的宽度才清晰，放宽正文列 */
+@media (min-width: 1640px) {
+  /* 视口窄于此值时，VitePress 算出的内容左边距会钻到侧边栏下面 */
+  .gpu-page {
+    --vp-layout-max-width: 1640px;
+  }
+}
+@media (min-width: 1280px) {
+  .gpu-page .VPDoc.has-aside .content-container {
+    max-width: 900px !important;
+  }
+}
+
+.gpu-lede {
+  font-size: 1.1rem;
+}
+.gpu-eyebrow {
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+}
+.gpu-note {
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+}
+
+.gpu-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 16px 0;
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+}
+.gpu-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.gpu-legend i {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1.2px solid;
+}
+.gpu-legend .lc {
+  background: var(--gpu-c-fill);
+  border-color: var(--gpu-c);
+}
+.gpu-legend .lm {
+  background: var(--gpu-m-fill);
+  border-color: var(--gpu-m);
+}
+.gpu-legend .lf {
+  background: var(--gpu-f-fill);
+  border-color: var(--gpu-f);
+}
+
+.gpu-fig {
+  margin: 20px 0;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  min-width: 0;
+}
+.gpu-fig figcaption {
+  padding: 12px 16px 14px;
+  border-top: 1px solid var(--vp-c-divider);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--vp-c-text-2);
+}
+.gpu-scroll {
+  overflow-x: auto;
+  padding: 12px;
+}
+.gpu-scroll:focus-visible {
+  outline: 2px solid var(--gpu-c);
+  outline-offset: -2px;
+}
+.gpu-fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.gpu-fig img.w680 {
+  min-width: 680px;
+}
+.gpu-fig img.narrow {
+  max-width: 600px;
+}
+.gpu-tag {
+  margin-right: 8px;
+  padding: 0 6px;
+  border: 1px solid var(--vp-c-text-1);
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  white-space: nowrap;
+}
+
+/* 示意图：<use> 内的元素匹配不到外层祖先，这里只能用单类名选择器 */
+.gpu-fig svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--vp-c-text-1);
+  font-family: inherit;
+}
+.gpu-fig svg.w680 {
+  min-width: 680px;
+}
+.gpu-t {
+  font-size: 13px;
+  fill: currentColor;
+}
+.gpu-ts {
+  font-size: 12px;
+  fill: var(--vp-c-text-2);
+}
+.gpu-tk {
+  font-size: 11.5px;
+  fill: currentColor;
+}
+.gpu-tt {
+  font-size: 15px;
+  font-weight: 700;
+  fill: currentColor;
+}
+.gpu-tb {
+  font-weight: 700;
+}
+.gpu-mid {
+  text-anchor: middle;
+}
+.gpu-end {
+  text-anchor: end;
+}
+.gpu-c {
+  fill: var(--gpu-c-fill);
+  stroke: var(--gpu-c);
+  stroke-width: 1.2;
+}
+.gpu-m {
+  fill: var(--gpu-m-fill);
+  stroke: var(--gpu-m);
+  stroke-width: 1.2;
+}
+.gpu-f {
+  fill: var(--gpu-f-fill);
+  stroke: var(--gpu-f);
+  stroke-width: 1.2;
+}
+.gpu-n {
+  fill: var(--gpu-n-fill);
+  stroke: var(--vp-c-divider);
+  stroke-width: 1.2;
+}
+.gpu-o,
+.gpu-ln {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+.gpu-dash {
+  stroke-dasharray: 4 4;
+}
+.gpu-thick {
+  fill: none;
+  stroke: var(--gpu-m);
+  stroke-width: 8;
+}
+.gpu-thin {
+  fill: none;
+  stroke: var(--gpu-m);
+  stroke-width: 1;
+}
+.gpu-dot {
+  fill: var(--vp-c-text-1);
+}
+.gpu-dot-t {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--vp-c-bg);
+  text-anchor: middle;
+}
+.gpu-wait {
+  fill: var(--gpu-m-fill);
+  stroke: var(--gpu-m);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+/* RTX 4090 规模 */
+.gpu-chain {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 20px 0;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+}
+.gpu-chain div {
+  min-width: 0;
+  padding: 14px 16px;
+  border-left: 1px solid var(--vp-c-divider);
+}
+.gpu-chain div:first-child {
+  border-left: 0;
+}
+.gpu-chain b {
+  display: block;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.gpu-chain span {
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+}
+@media (max-width: 560px) {
+  .gpu-chain {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gpu-chain div:nth-child(3) {
+    border-left: 0;
+  }
+  .gpu-chain div:nth-child(n + 3) {
+    border-top: 1px solid var(--vp-c-divider);
+  }
+}
+
+/* 分支实验 */
+.gpu-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 16px 0;
+}
+.gpu-tools button {
+  padding: 4px 12px;
+  border: 1px solid var(--vp-c-divider);
+  font-size: 0.875rem;
+  color: var(--vp-c-text-1);
+}
+.gpu-tools button:hover {
+  border-color: var(--gpu-c);
+}
+.gpu-tools button:focus-visible,
+.gpu-page .vp-doc .gpu-simt button:focus-visible {
+  outline: 2px solid var(--gpu-c);
+  outline-offset: -2px;
+}
+.gpu-page .vp-doc .gpu-simt {
+  display: table;
+  width: 100%;
+  min-width: 620px;
+  margin: 0;
+  border-collapse: collapse;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+.gpu-page .vp-doc .gpu-simt tr {
+  background: transparent;
+  border: 0;
+}
+.gpu-page .vp-doc .gpu-simt th,
+.gpu-page .vp-doc .gpu-simt td {
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--vp-c-divider);
+  background: transparent;
+  font-size: inherit;
+  font-weight: 400;
+  text-align: center;
+}
+.gpu-page .vp-doc .gpu-simt thead th {
+  font-size: 0.75rem;
+  color: var(--vp-c-text-2);
+}
+.gpu-page .vp-doc .gpu-simt .code {
+  width: 150px;
+  padding: 0 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+.gpu-page .vp-doc .gpu-simt button {
+  width: 100%;
+  height: 34px;
+  background: var(--gpu-c-fill);
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+.gpu-page .vp-doc .gpu-simt button.neg {
+  background: transparent;
+}
+.gpu-page .vp-doc .gpu-simt button:hover {
+  outline: 2px solid var(--gpu-c);
+  outline-offset: -2px;
+}
+.gpu-page .vp-doc .gpu-simt td.on {
+  background: var(--gpu-c-fill);
+}
+.gpu-page .vp-doc .gpu-simt td.off {
+  background: repeating-linear-gradient(135deg, transparent 0 4px, var(--vp-c-divider) 4px 5px);
+}
+.gpu-page .vp-doc .gpu-simt tr.skip td {
+  color: var(--vp-c-text-2);
+}
+.gpu-page .vp-doc .gpu-simt td.skipnote {
+  font-family: var(--vp-font-family-base);
+  font-size: 0.8125rem;
+  color: var(--vp-c-text-2);
+}
+.gpu-read {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 28px;
+  padding: 0 16px 14px;
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+}
+.gpu-read b {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--vp-c-text-1);
+}
+
+/* 图表：配色已用 dataviz 校验器检查过浅色和深色两种底色 */
+.gpu-page {
+  --gpu-ca: #009488;
+  --gpu-cb: #a0600a;
+  --gpu-cc: #5a4fb0;
+  --gpu-on-chart: #ffffff;
+}
+.dark .gpu-page {
+  --gpu-ca: #1fa79b;
+  --gpu-cb: #bb8527;
+  --gpu-cc: #8b80ea;
+  --gpu-on-chart: #14181c;
+}
+.gpu-grid {
+  stroke: var(--vp-c-divider);
+  stroke-width: 1;
+}
+.gpu-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.gpu-line.la {
+  stroke: var(--gpu-ca);
+}
+.gpu-line.lb {
+  stroke: var(--gpu-cb);
+}
+.gpu-cross {
+  stroke: var(--vp-c-text-3);
+  stroke-width: 1;
+}
+.gpu-pt {
+  stroke: var(--vp-c-bg-soft);
+  stroke-width: 2;
+}
+.gpu-pt.pa {
+  fill: var(--gpu-ca);
+}
+.gpu-pt.pb {
+  fill: var(--gpu-cb);
+}
+.gpu-chart {
+  touch-action: pan-y;
+}
+.gpu-seg-a {
+  fill: var(--gpu-ca);
+}
+.gpu-seg-b {
+  fill: var(--gpu-cb);
+}
+.gpu-seg-n {
+  fill: var(--gpu-n-fill);
+}
+.gpu-chart-legend {
+  margin: 8px 16px 0;
+}
+.gpu-chart-legend .key {
+  width: 16px;
+  height: 0;
+  border: 0;
+  border-top: 2px solid;
+  border-radius: 1px;
+}
+.gpu-chart-legend .ka {
+  border-color: var(--gpu-ca);
+}
+.gpu-chart-legend .kb {
+  border-color: var(--gpu-cb);
+}
+.gpu-chart-legend .swatch {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 2px;
+}
+.swatch.sa,
+.seg.sa {
+  background: var(--gpu-cb);
+}
+.swatch.sb,
+.seg.sb {
+  background: var(--gpu-cc);
+}
+.swatch.sc,
+.seg.sc {
+  background: var(--gpu-ca);
+}
+.gpu-fig:not(.gpu-lab) .gpu-chart-legend .swatch.sa {
+  background: var(--gpu-ca);
+}
+.gpu-fig:not(.gpu-lab) .gpu-chart-legend .swatch.sb {
+  background: var(--gpu-cb);
+}
+.gpu-chart-legend .swatch.sn {
+  background: var(--gpu-n-fill);
+  box-shadow: inset 0 0 0 1px var(--vp-c-divider);
+}
+
+.gpu-tools button.active {
+  border-color: var(--gpu-ca);
+  background: var(--vp-c-brand-soft);
+  font-weight: 600;
+}
+.gpu-lab-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 12px 16px 8px;
+  font-size: 0.9rem;
+}
+.gpu-lab-row input {
+  flex: 1 1 200px;
+  min-width: 0;
+  accent-color: var(--gpu-ca);
+}
+.gpu-lab .gpu-read {
+  padding-bottom: 4px;
+}
+
+.gpu-stack-wrap {
+  position: relative;
+  margin: 12px 16px 0;
+}
+.gpu-stack {
+  display: flex;
+  gap: 2px;
+  height: 28px;
+}
+.gpu-stack .seg {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding-left: 8px;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--gpu-on-chart);
+  white-space: nowrap;
+  transition: width 0.15s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gpu-stack .seg {
+    transition: none;
+  }
+}
+.gpu-cap {
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--vp-c-text-1);
+}
+.vp-doc .gpu-cap-label {
+  margin: 6px 16px 12px;
+  font-size: 0.8125rem;
+  color: var(--vp-c-text-2);
+}
+
+.gpu-bars {
+  position: relative;
+  padding: 16px;
+  margin: 20px 0;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  font-size: 0.875rem;
+}
+.gpu-bars .row,
+.gpu-bars .axis {
+  display: grid;
+  grid-template-columns: minmax(84px, 170px) minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+.gpu-bars .row {
+  min-height: 30px;
+  border-radius: 2px;
+}
+.gpu-bars .row:focus-visible {
+  outline: 2px solid var(--gpu-ca);
+  outline-offset: 1px;
+}
+.gpu-bars .name {
+  line-height: 1.3;
+}
+.gpu-bars .track {
+  position: relative;
+  display: block;
+  height: 30px;
+  margin-right: 86px;
+}
+.gpu-bars .axis .track {
+  height: 20px;
+}
+.gpu-bars .tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--vp-c-divider);
+}
+.gpu-bars .bar {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  height: 16px;
+  background: var(--gpu-ca);
+  border-radius: 0 4px 4px 0;
+}
+.gpu-bars .val {
+  position: absolute;
+  top: 5px;
+  padding-left: 6px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.gpu-bars .tl {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--vp-c-text-2);
+}
+.gpu-bars .tip {
+  position: absolute;
+  z-index: 2;
+  max-width: 300px;
+  padding: 6px 10px;
+  background: var(--vp-c-bg-elv);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  box-shadow: var(--vp-shadow-2);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+/* Reduce 实验 */
+.vp-doc .gpu-rd-code {
+  margin: 0 16px 8px;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.gpu-rd-grid {
+  display: grid;
+  grid-template-columns: 62px repeat(32, minmax(0, 1fr)) 44px;
+  gap: 1px;
+  align-items: center;
+  min-width: 620px;
+  font-size: 0.75rem;
+  color: var(--vp-c-text-2);
+}
+.gpu-rd-bank {
+  margin-top: 16px;
+}
+.gpu-rd-grid .head {
+  min-height: 18px;
+}
+.gpu-rd-grid .span8 {
+  grid-column: span 8;
+}
+.gpu-rd-grid .label {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.gpu-rd-grid .tail {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.gpu-rd-grid i {
+  display: block;
+  height: 14px;
+}
+.gpu-rd-grid .count {
+  text-align: center;
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+}
+.gpu-rd-grid .count.clash {
+  font-weight: 700;
+  color: var(--gpu-m);
+}
+.rd-on,
+.gpu-legend i.rd-on {
+  background: var(--gpu-c);
+  border-color: var(--gpu-c);
+}
+.rd-off,
+.gpu-legend i.rd-off {
+  background: repeating-linear-gradient(135deg, var(--gpu-c-fill) 0 3px, transparent 3px 5px);
+  border-color: var(--gpu-c);
+}
+.rd-idle,
+.gpu-legend i.rd-idle {
+  background: var(--gpu-n-fill);
+  border-color: var(--vp-c-divider);
+}
+.rd-blank {
+  background: var(--gpu-n-fill);
+  opacity: 0.5;
+}
+.rd-hit,
+.gpu-legend i.rd-hit {
+  background: var(--gpu-m-fill);
+  border-color: var(--gpu-m);
+}
+.gpu-rd-grid i.rd-hit {
+  box-shadow: inset 0 0 0 1px var(--gpu-m);
+}
+.rd-clash,
+.gpu-legend i.rd-clash {
+  background: var(--gpu-m);
+  border-color: var(--gpu-m);
+}
